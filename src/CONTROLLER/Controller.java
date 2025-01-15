@@ -37,7 +37,7 @@ public class Controller {
         repoMedikamente.update(med);
     }
 
-    public void updateKunde(int id, String name, int age, String diagnose, List<Medikamente> meds) {
+    public void updatePatient(int id, String name, int age, String diagnose) {
         repoPatienten.update(new Patienten(id,name,age,diagnose,repoPatienten.get(id).getMedikamenteList()));
     }
 
