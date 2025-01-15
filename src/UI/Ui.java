@@ -142,7 +142,7 @@ public class Ui {
                     break;
                 case 2:
                     System.out.println("\nPatient Med List:");
-                    controller.getAllMedikamente().forEach(System.out::println);
+                    controller.getAllPatienten().forEach(System.out::println);
                     break;
                 case 3:
                     System.out.print("Enter the ID of the patient to update: ");

@@ -20,7 +20,7 @@ public class RepoMedikamente implements IRepo<Medikamente>{
 
     @Override
     public void delete(int id) {
-        medikamente.remove(medikamente.indexOf(id));
+        medikamente.remove(id);
     }
 
     @Override

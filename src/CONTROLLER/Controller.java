@@ -48,8 +48,9 @@ public class Controller {
     }
 
     public void deleteMedicament(String nameProdukt) {
-        for(int i = 0; i<repoMedikamente.getAll().size(); i++){
-            if(repoMedikamente.getAll().get(i).getName().equals(nameProdukt)){
+        List<Medikamente> lmed = repoMedikamente.getAll();
+        for(int i = 0; i<lmed.size(); i++){
+            if(lmed.get(i).getName().equals(nameProdukt)){
                 repoMedikamente.delete(i);
                 break;
             }
