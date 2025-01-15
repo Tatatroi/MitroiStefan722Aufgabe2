@@ -34,4 +34,13 @@ public class Medikamente {
     public void setKrankenheit(String krankenheit) {
         Krankenheit = krankenheit;
     }
+
+    @Override
+    public String toString() {
+        return "Medikamente{" +
+                "name='" + name + '\'' +
+                ", Preis=" + Preis +
+                ", Krankenheit='" + Krankenheit + '\'' +
+                '}';
+    }
 }

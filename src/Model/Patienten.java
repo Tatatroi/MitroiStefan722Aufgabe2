@@ -57,4 +57,15 @@ public class Patienten {
     public void setMedikamenteList(List<Medikamente> medikamenteList) {
         this.medikamenteList = medikamenteList;
     }
+
+    @Override
+    public String toString() {
+        return "Patienten{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", diagnose='" + diagnose + '\'' +
+                ", medikamenteList=" + medikamenteList +
+                '}';
+    }
 }
