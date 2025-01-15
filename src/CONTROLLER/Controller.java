@@ -5,6 +5,7 @@ import Model.Patienten;
 import REPOSITORY.RepoMedikamente;
 import REPOSITORY.RepoPatienten;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Controller {
@@ -71,6 +72,30 @@ public class Controller {
 
     public Patienten getPatient(int id){
         return repoPatienten.get(id);
+    }
+
+    public List<Patienten> filterByDiagnose(String diagnose) {
+        List<Patienten> patienten = repoPatienten.getAll();
+        return patienten.stream().filter(p -> p.getDiagnose().equals(diagnose)).toList();
+    }
+
+    public  List<Patienten> filterByKrankenheit(String krankenheit) {
+        List<Patienten> patienten = repoPatienten.getAll();
+        List<Patienten> rez = new ArrayList<>();
+        for(Patienten p : patienten){
+            for(Medikamente m : p.getMedikamenteList()){
+                if(m.getKrankenheit().equals(krankenheit)){
+                    rez.add(p);
+                }
+            }
+        }
+        return rez;
+    }
+
+    public List<Medikamente> sortByPrice(int idPatient, String sortMode){
+        List<Medikamente> meds = repoPatienten.get(idPatient).getMedikamenteList();
+        meds.sort((m1,m2)->sortMode.equals("asc") ? Integer.compare(m1.getPreis(),m2.getPreis()) : Integer.compare(m2.getPreis(),m1.getPreis()));
+        return meds;
     }
 
 }
